@@ -18,9 +18,7 @@ fun main() {
 
     fun part1(input: List<String>): Int {
         return input
-            .map { it.substring(0, it.length / 2) to it.substring(it.length / 2) }
-            .map { score(it.toList()) }
-            .sum()
+            .map { it.substring(0, it.length / 2) to it.substring(it.length / 2) }.sumOf { score(it.toList()) }
     }
 
     fun part2(input: List<String>): Int {
@@ -32,14 +30,15 @@ fun main() {
                     first = s
                     null
                 }
+
                 1 -> {
                     second = s
                     null
                 }
+
                 else -> listOf(first, second, s)
             }
-        }.map { score(it) }
-        .sum()
+        }.sumOf { score(it) }
         return groups
     }
 

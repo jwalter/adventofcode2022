@@ -8,8 +8,8 @@ fun main() {
         }
     }
 
-    fun score(pair: List<String>): Int {
-        val common = pair.drop(1).fold(pair.first()) { acc, s ->
+    fun score(rucksackContents: List<String>): Int {
+        val common = rucksackContents.drop(1).fold(rucksackContents.first()) { acc, s ->
             s.filter { acc.contains(it) }
         }
         val i = common.toSet().map { codeScore(it.code) }
